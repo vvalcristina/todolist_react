@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import TodoItems from "./ToDoItem"
+import ToDoItems from "./ToDoItem"
 
 class ToDoList extends Component{
     constructor(props) {
@@ -7,22 +7,19 @@ class ToDoList extends Component{
         this.state = { items: [] };
     
         this.addItem = this.addItem.bind(this);
-        this.deleteItem = this.deleteItem.bind(this);
+        this.delItem = this.delItem.bind(this);
 }
 
 addItem(e) {
     if(this._inputElement.value !== "") {
-      //criando a variável newItem, que vai guardar um objeto
-      var newItem = {
-        //o objeto contém o texto digitado no input e um valor único para chave
-        //que é setado como sendo o horário atual (não vai se repetir)
-        text: this._inputElement.value,
-        key: Date.now()
+      var novoItem = {
+        //o objeto contém o texto digitado no input e um valor único para cha
+        text: this._inputElement.value
       };
     //setando a propriedade items do state
     this.setState((prevState) => {
       return {
-        items: prevState.items.concat(newItem)
+       items: prevState.items.concat(novoItem)
       };
     });
     //limpando o input para receber o próximo elemento
@@ -31,10 +28,10 @@ addItem(e) {
 
   console.log(this.state.items);
   //com a linha abaixo, é feita a sobrescrita do behavior default desse evento
-  e.preventDefault();
+   e.preventDefault();
 }
 
-deleteItem(key) {
+delItem(key) {
   var filteredItems = this.state.items.filter(function (item) {
     return (item.key !== key);
   });
@@ -52,11 +49,11 @@ deleteItem(key) {
             <input  ref={(a) => this._inputElement = a}
                     placeholder="digite uma tarefa">
             </input>
-            <button type="submit"><i className="fas fa-plus"></i></button>
+            <button type="submit"><i className="fas fa-plus">Add</i></button>
           </form>
         </div>
-        <TodoItems entries={this.state.items}
-                   delete={this.deleteItem}/>
+        <ToDoItems entries={this.state.items}
+                   del={this.delItem}/>
       </div>
     );
   }
