@@ -7,7 +7,7 @@ export default class ToDoList extends Component {
             <div className="Tarefas">
                 <div className="header">
                     <form>
-                        <input placeholder="Digite a tarefa">
+                        <input placeholder="Digite a tarefa" name = "tarefa" >
                         </input>
                         <button type="submit">Adicionar</button>
                     </form>
