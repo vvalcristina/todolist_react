@@ -6,34 +6,30 @@ class ToDoList extends Component{
         super(props);
         this.state = { items: [] };
     
-        this.addItem = this.addItem.bind(this);
-        this.delItem = this.delItem.bind(this);
+        this.adicionarItem = this.adicionarItem.bind(this);
+        this.deleteItem = this.deleteItem.bind(this);
 }
 
-addItem(e) {
+adicionarItem(event) {
     if(this._inputElement.value !== "") {
       var novoItem = {
-        //o objeto contém o texto digitado no input e um valor único para cha
         text: this._inputElement.value
       };
-    //setando a propriedade items do state
     this.setState((prevState) => {
       return {
        items: prevState.items.concat(novoItem)
       };
     });
-    //limpando o input para receber o próximo elemento
     this._inputElement.value = ""
   }
-
   console.log(this.state.items);
-  //com a linha abaixo, é feita a sobrescrita do behavior default desse evento
-   e.preventDefault();
+   event.preventDefault();
 }
 
-delItem(key) {
+deleteItem(key) {
   var filteredItems = this.state.items.filter(function (item) {
     return (item.key !== key);
+    //https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
   });
 
   this.setState({
@@ -44,16 +40,15 @@ delItem(key) {
   render() {
     return (
       <div className="todoListMain">
+       <h1>Lista de Tarefas</h1>       
         <div className="header">
-          <form onSubmit={this.addItem}>
-            <input  ref={(a) => this._inputElement = a}
-                    placeholder="digite uma tarefa">
+          <form onSubmit={this.adicionarItem}>
+            <input  ref={(a) => this._inputElement = a} placeholder="Digite sua tarefa">
             </input>
-            <button type="submit"><i className="fas fa-plus">Add</i></button>
+            <button type="submit"><b className="fas fa-plus">Adicionar</b></button>
           </form>
         </div>
-        <ToDoItems entries={this.state.items}
-                   del={this.delItem}/>
+        <ToDoItems entries={this.state.items} delete={this.deleteItem}/>
       </div>
     );
   }

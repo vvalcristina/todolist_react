@@ -4,31 +4,24 @@ class ToDoItems extends Component {
     constructor(props) {
       super(props);
       this.criarTarefa = this.criarTarefa.bind(this);
+    } 
+    delete(key) {
+      this.props.delete(key);
     }
-  
-    del(key) {
-      this.props.del(key);
-    }
-  
     criarTarefa(item) {
-      return <li key={item.key}>
+      return <div key={item.key}>
                     <div>
-                      <a  onClick={() => this.del(item.key)}>
-                        <i className="fas fa-times"></i>
-                      </a>
+                      <a  onClick={() => this.delete(item.key)}><i className="fas fa-times"></i></a>
                     </div>
                     <div className="texto">{item.text}</div>
-             </li>
+             </div>
     }
-  
     render() {
       var todoEntries = this.props.entries;
       var listItems = todoEntries.map(this.criarTarefa);
       return (
-        <ul className="theList">
-      
-            {listItems}
-         
+        <ul className="theList">     
+            {listItems}       
         </ul>
       );
     }

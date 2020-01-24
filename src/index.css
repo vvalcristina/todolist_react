@@ -1,9 +1,21 @@
 body {
-  padding: 50px;
-  background-color: white;
-  font-family: sans-serif;
+  background: #f8f6f6;
+  color: #404040;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 20px;
 }
-#container {
-  display: flex;
-  justify-content: center;
+
+a {
+  color: #1e7ad3;
+  text-decoration: none;
 }
+
+a:hover { text-decoration: underline }
+
+.container {
+  margin: 50px auto;
+  width: 380px;
+}
+
