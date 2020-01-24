@@ -22,19 +22,15 @@ adicionarItem(event) {
     });
     this._inputElement.value = ""
   }
-  console.log(this.state.items);
+   console.log(this.state.items);
    event.preventDefault();
 }
 
-deleteItem(key) {
-  var filteredItems = this.state.items.filter(function (item) {
-    return (item.key !== key);
-    //https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
-  });
-
-  this.setState({
-    items: filteredItems
-  });
+deleteItem(index) {
+  console.log(index)
+  var cloneItems =Array.from(this.state.items)
+  cloneItems.splice(index, 1)
+  this.setState({ items: cloneItems });
 }
 
   render() {
