@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Calendar from './components/Calendar'
+import AtividadesCalendario from './components/AtividadesCalendario'
 import * as serviceWorker from './serviceWorker';
 import ToDoList from "./components/ToDoList";
 import { BrowserRouter, Switch, Route } from 'react-router-dom' 
@@ -13,7 +13,7 @@ ReactDOM.render(
     <BrowserRouter>
         <Switch>
             <Route path="/" exact={true} component={App}/>
-            <Route path="/calendar" component={Calendar}/>
+            <Route path="/calendario" component={AtividadesCalendario}/>
         </Switch>
     </BrowserRouter>
     , document.getElementById('root'));
