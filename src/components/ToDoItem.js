@@ -15,18 +15,20 @@ class ToDoItems extends Component {
       return <div key={index}>
                     <div>
                       <a  onClick={() => this.delete(index)}>
-                      X {item.text}
+                      X {item.text},
+                      {}
+                        {}
                       </a>
                     </div>
              </div>
     }
 
     render() {
-      var todoEntries = this.props.entries;
-      var listItems = todoEntries.map(this.criarTarefa);
+     var todoEntries = this.props.entries;
+    var listItems = todoEntries.map(this.criarTarefa);
       return (
-        <ul className="theList">     
-            {listItems}       
+        <ul className="theList"> 
+          {listItems} 
         </ul>
       );
     }

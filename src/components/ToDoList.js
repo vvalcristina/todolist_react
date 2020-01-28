@@ -1,11 +1,14 @@
 import React, {Component} from "react";
 import ToDoItems from "./ToDoItem"
 
+
 class ToDoList extends Component{
     constructor(props) {
         super(props);
         this.state = { 
-          items: [] 
+          'items': '',
+          'data_inicio':'',
+          'data_fim':'', 
         };
     
         this.adicionarItem = this.adicionarItem.bind(this);
@@ -13,6 +16,7 @@ class ToDoList extends Component{
 }
 
 adicionarItem(event) {
+  /*
     if(this._inputElement.value !== "") {
       var novoItem = {
         text: this._inputElement.value
@@ -23,7 +27,15 @@ adicionarItem(event) {
       };
     });
     this._inputElement.value = ""
-  }
+  }*/
+  if(this._inputElement.value !== ""){
+    var novoItem = [{
+      'items': this.items.value,
+      'hora_inicio': this.hora_inicio.value,
+      'hora_fim': this.hora_fim.value
+    }]
+    return {novoItem}
+    
    console.log(this.state.items);
    event.preventDefault();
 }
@@ -43,6 +55,8 @@ deleteItem(index) {
           <form onSubmit={this.adicionarItem}>
             <input  ref={(a) => this._inputElement = a} placeholder="Digite sua tarefa">
             </input>
+            <label for="appt-time">Hora de Início: </label>
+        <input id="appt-time" type="time" name="appt-time" value=""></input>
             <button type="submit"><b className="fas fa-plus">Adicionar</b></button>
           </form>
         </div>
@@ -53,3 +67,4 @@ deleteItem(index) {
 }
 
 export default ToDoList;
+
