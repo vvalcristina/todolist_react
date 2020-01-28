@@ -4,7 +4,9 @@ import ToDoItems from "./ToDoItem"
 class ToDoList extends Component{
     constructor(props) {
         super(props);
-        this.state = { items: [] };
+        this.state = { 
+          items: [] 
+        };
     
         this.adicionarItem = this.adicionarItem.bind(this);
         this.deleteItem = this.deleteItem.bind(this);

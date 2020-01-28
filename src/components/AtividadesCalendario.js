@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import { render } from 'react-dom';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import './style.css' ;
@@ -134,4 +133,5 @@ export class AtividadesCalendario extends Component {
         </div>);
     }
 }
+
 export default AtividadesCalendario
