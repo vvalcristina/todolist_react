@@ -5,25 +5,22 @@ import React, { Component } from 'react';
 class Calendario extends Component{
     constructor(props){
         super(props);
-        this.state = { atividades: {
-          'nome':'',
-          'hora_inicio': '',
-          'hora_fim':''
-        } }
+        this.state = { atividades: []}
         this.adicionarAtividade = this.adicionarAtividade.bind(this)
         this.deleteAtividade = this.deleteAtividade.bind(this)
     }
     adicionarAtividade(event){
       event.preventDefault();
-      var novaAtividade = {
-          'nome': this.refs.atividades.value,
-          'hora_inicio': this.refs.atividades.value,
-          'hora_fim': this.refs.atividades.value
-      }
+      var novaAtividade = [
+        this.refs.items.value,
+        this.refs.hora_inicio.value,
+        this.refs.hora_fim.incio,
+      ]
       
       if(novaAtividade) {          
-          console.log(novaAtividade)
-          this.refs.form.reset();
+         var vetorItem = this.state.atividades.concat(novaAtividade)
+         this.setState({atividades:vetorItem})
+        this.refs.form.reset();
       }
   }
 
@@ -34,8 +31,13 @@ class Calendario extends Component{
 
     }
     render(){
-      return
+      return(
+        <div className="ToDoList">
+          OI
+        </div>
+      )
     }
-    }
+}
+export default Calendario
     
- 
+
